@@ -292,12 +292,35 @@ const Dashboard = () => {
         return;
       }
       let refLink = `${ClientBaseURL}?refid=${id}&abcref=123xyz`;
+      // console.log("ref link", refLink);
+      // refLink.select();
+      // refLink.setSelectionRange(0, 99999);
+      // console.log("after ref link", refLink);
       await navigator.clipboard.writeText(refLink);
-      setCopySuccess(true);
+      setTimeout(() => {
+        setCopySuccess(true);
+      }, 3);
     } catch (err) {
       setCopySuccess(false);
     }
   };
+
+  //////////////////////////
+
+  // function myFunction() {
+  //   var copyText = document.getElementById("myInput");
+  //   copyText.select();
+  //   copyText.setSelectionRange(0, 99999);
+  //   navigator.clipboard
+  //     .writeText(copyText.value)
+  //     .then(() => {
+  //       alert("successfully copied");
+  //     })
+  //     .catch(() => {
+  //       alert("something went wrong");
+  //     });
+  // }
+  /////////////////////////
   async function userAccount() {
     const accounts = await web3.eth.requestAccounts();
     if (!accounts) {
@@ -458,7 +481,9 @@ const Dashboard = () => {
 
         <div className="col-sm-12 grid-margin">
           <div className="card">
-            <div className="card-body text-center">SLR address 0x43cD61f2B487847dC73ABC5b6A2B72Ee7E989D02</div>
+            <div className="card-body text-center">
+              SLR address 0x43cD61f2B487847dC73ABC5b6A2B72Ee7E989D02
+            </div>
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-sm-12 grid-margin">
